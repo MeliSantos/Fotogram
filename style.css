@@ -48,3 +48,24 @@ footer {
     background-color: #0e2d37;
 
 }
+main img {
+    height: 100px;
+    width: 100px;
+    border-radius: 8px;
+     transition: transform 0.4s ease, opacity 0.4s ease;
+    
+}
+main img:hover{
+  transform: scale(1.1);
+  opacity: 0.4;
+}
+
+figcaption{
+    display: none;
+}
+.img_position{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
