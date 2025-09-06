@@ -5,31 +5,40 @@
     font-style: normal;
     color: aliceblue;
 }
+
 body {
     font-family: 'Raleway', sans-serif;
     color: aliceblue;
+    text-align: center;
     margin: 0;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+
+
 }
+
 header {
-    background-color: #0e2d37;
+    background-color: #18055554;
 }
+
 header img {
     height: 40px;
-    padding-left: 12px;
+    padding-left: 30px;
 }
+
 .logo_header {
     height: 100px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
 }
+
 .header_section {
     display: flex;
     justify-content: space-between;
 }
+
 nav {
     padding-right: 12px;
     width: 400px;
@@ -38,34 +47,103 @@ nav {
     align-items: center;
 
 }
+
 .main_background {
-    background-color: #082129;
+    background-color: #0d0247;
 }
-main{
-    flex-grow: 1;
-}
-footer {
-    background-color: #0e2d37;
+
+.main_section {
+    padding-bottom: 60px;
+
 
 }
-main img {
+
+main {
+    flex-grow: 1;
+
+}
+
+footer {
+    background-color: #18055554;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.main_img {
     height: 100px;
     width: 100px;
     border-radius: 8px;
-     transition: transform 0.4s ease, opacity 0.4s ease;
-    
-}
-main img:hover{
-  transform: scale(1.1);
-  opacity: 0.4;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+
 }
 
-figcaption{
+.main_img:hover {
+    transform: scale(1.1);
+    opacity: 0.5;
+}
+
+figcaption {
     display: none;
 }
-.img_position{
+
+.img_position {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+}
+
+h1 {
+    font-size: 30px;
+}
+
+h2 {
+    font-size: 24px;
+}
+
+p {
+    font-size: 20px;
+    width: auto;
+    text-align: center;
+}
+
+.link {
+    text-decoration: none;
+    color: aliceblue;
+}
+
+.link:hover {
+    color: #806f53;
+    border: #070221;
+}
+
+.midtext {
+    background-color: #e8d2c338;
+}
+
+.text_section {
+    position: relative;
+    background-image: url('./img/praia-da-adraga.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 60px 20px;
+    color: white;
+    text-align: center;
+}
+
+/* Optional halbtransparenter Hintergrund für bessere Lesbarkeit */
+.text_content {
+    background-color: rgba(0, 0, 0, 0.5);
+    /* dunkler Halbtransparent-Overlay */
+    padding: 100px;
+}
+
+.main_text {
+    background-color: rgba(0, 0, 0, 0.2);
+    /* dunkler Halbtransparent-Overlay */
+    padding: 50px;
 }
