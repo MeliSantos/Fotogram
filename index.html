@@ -34,104 +34,318 @@
                     the sea? Then this is the place for you.</p>
             </div> <br>
             <div class="img_position">
-                <figure>
-                    <img class="main_img" src="./img/rio.jpg" alt="Rio de Janeiro Copacabana Beach, Brazil">
-                    <figcaption> This image shows the world-famous Copacabana Beach in Rio de Janeiro, Brazil, at
-                        sunset.
-                        The beach is known for its lively atmosphere and breathtaking views of the Atlantic Ocean and
-                        Sugarloaf Mountain.
-                        Copacabana is a popular spot for locals and tourists to exercise, relax, and soak up the sun.
-                    </figcaption>
-                </figure>
+                <img onclick="openDialog('Dialog_rio_img')" aria-haspopup="Dialog" aria-controls="Dialog_rio_img"
+                    class="main_img" src="./img/rio.jpg" alt="Rio de Janeiro Copacabana Beach, Brazil">
 
-                <figure>
-                    <img class="main_img" src="./img/dune-brazil.jpg" alt="Lencois Maranheces, Brazil">
-                    <figcaption> The image shows an extensive dune area on the coast of the state of Maranhão in
-                        northern
-                        Brazil.
-                        The park is also called the "Bedsheets of Maranhão" because the white dunes resemble spread-out
-                        bedsheets.
-                    </figcaption>
-                </figure>
+                <dialog id="Dialog_rio_img" aria-labelledby="dialogTitleRio" aria-describedby="RioDescription">
+                    <header class="dialog_header">
+                        <h2 id="dialogTitleRio"> Rio de Janeiro, Brazil </h2>
+                    </header>
+                    <main>
+                        <figure>
+                            <img class="dialog_img" src="./img/rio.jpg" alt="Rio de Janeiro Copacabana Beach, Brazil">
 
-                <figure>
-                    <img class="main_img" src="./img/bluesea-stones.jpg" alt="Algarve, Portugal">
-                    <figcaption>The image shows a coastal landscape with striking rock formations in the sea and on the
-                        coast. These are typical features of the beaches of the Algarve in Portugal, especially in the
-                        region around Albufeira.</figcaption>
-                </figure>
+                            <figcaption id="RioDescription"> This image shows the world-famous Copacabana Beach in Rio
+                                de Janeiro, Brazil, at
+                                sunset.<br><br>
+                                The beach is known for its lively atmosphere and breathtaking views of the Atlantic
+                                Ocean
+                                and
+                                Sugarloaf Mountain.
+                                <br>
+                                Copacabana is a popular spot for locals and tourists to exercise, relax, and soak up the
+                                sun.
+                            </figcaption>
+                        </figure>
+                    </main>
+                    <footer>
+                        <button aria-label="Back">
+                            < </button>
+                                <button onclick="closeDialog('Dialog_rio_img')" aria-label=" Close Dialog"> Close
+                                </button>
+                                <button aria-label="Next"> > </button>
+                    </footer>
+                </dialog>
 
-                <figure>
-                    <img class="main_img" src="./img/bluesea-stones2.jpg" alt="Ponta da Piedade, Portugal">
-                    <figcaption>The pictured subject is the Ponta da Piedade in Lagos, Portugal.
-                        The Ponta da Piedade is known for its natural arches and rock formations, which have been
-                        created by
-                        erosion over thousands of years.</figcaption>
-                </figure>
+                <img onclick="openDialog('Dialog_dune_img')" aria-haspopup="Dialog" aria-controls="Dialog_Dune_img"
+                    class="main_img" src="./img/dune-brazil.jpg" alt="Lencois Maranheces, Brazil">
 
-                <figure>
-                    <img class="main_img" src="./img/mexico.jpg" alt="Yucatán, Mexico">
-                    <figcaption>
-                        Cancún is a popular tourist city on the northeast coast of Mexico's Yucatán Peninsula, located
-                        on
-                        the Caribbean Sea. The city is famous for its miles of white sandy beaches and crystal-clear
-                        waters,
-                        as seen in this picture.</figcaption>
-                </figure>
+                <dialog id="Dialog_dune_img" aria-labelledby="dialogTitleDune" aria-describedby="DuneDescription">
+                    <header class="dialog_header">
+                        <h2 id="dialogTitleDune"> Lencois Maranhences, Brazil </h2>
+                    </header>
+                    <main>
+                        <figure>
+                            <img class="dialog_img" src="./img/dune-brazil.jpg" alt="Lencois Maranheces, Brazil">
+                            <figcaption> The image shows an extensive dune area on the coast of the state of Maranhão in
+                                northern
+                                Brazil.
+                                The park is also called the "Bedsheets of Maranhão" because the white dunes resemble
+                                spread-out
+                                bedsheets.
+                            </figcaption>
+                        </figure>
+                    </main>
+                    <footer>
+                        <button aria-label="Back">
+                            < </button>
+                                <button onclick="closeDialog('Dialog_dune_img')" aria-label="Close Dialog"> Close
+                                </button>
+                                <button aria-label="Next"> > </button>
+                    </footer>
+                </dialog>
 
-                <figure>
-                    <img class="main_img" src="./img/beach-stones.jpg" alt="Maui, Hawaii">
-                    <figcaption>Maui, also known as "The Magic Isle," is famous for its fine sandy beaches and
-                        picturesque
-                        coastlines, which reflect the scene in the picture.
-                        The combination of palm trees, volcanic rock on the coast, and the Pacific Ocean is typical of
-                        the
-                        Hawaiian Islands.</figcaption>
-                </figure>
+                <img onclick="openDialog('Dialog_Algarve')" aria-haspopup="Dialog" aria-controls="Dialog_Algarve_img"
+                    class="main_img" src="./img/bluesea-stones.jpg" alt="Algarve, Portugal">
+                <dialog id="Dialog_Algarve" aria-labelledby="dialogTitleAlgarve" aria-describedby="AlgarveDescription">
+                    <header class="dialog_header">
+                        <h2 id="dialogTitleAlgarve"> Algarve, Portugal </h2>
+                    </header>
+                    <main>
+                        <figure>
+                            <img class="dialog_img" src="./img/bluesea-stones.jpg" alt="Algarve, Portugal">
+                            <figcaption>The image shows a coastal landscape with striking rock formations in the sea and
+                                on
+                                the
+                                coast. These are typical features of the beaches of the Algarve in Portugal, especially
+                                in
+                                the
+                                region around Albufeira.</figcaption>
+                        </figure>
+                    </main>
+                    <footer>
+                        <button aria-label="Back">
+                            < </button>
+                                <button onclick="closeDialog('Dialog_Algarve')" aria-label="Close Dialog"> Close
+                                </button>
+                                <button aria-label="Next"> > </button>
+                    </footer>
+                </dialog>
+                <img onclick="openDialog('Dialog_Piedade')" aria-haspopup="Dialog" aria-controls="Dialog_Piedade_img"
+                    class="main_img" src="./img/bluesea-stones2.jpg" alt="Ponta da Piedade, Portugal">
+                <dialog id="Dialog_Piedade" aria-labelledby="dialogTitlePiedade" aria-describedby="PiedadeDescription">
+                    <header class="dialog_header">
+                        <h2 id="dialogTitlePiedade"> Ponta da Piedade, Portugal </h2>
+                    </header>
+                    <main>
+                        <figure>
+                            <img class="dialog_img" src="./img/bluesea-stones2.jpg" alt="Ponta da Piedade, Portugal">
+                            <figcaption>The pictured subject is the Ponta da Piedade in Lagos, Portugal.
+                                The Ponta da Piedade is known for its natural arches and rock formations, which have
+                                been
+                                created by
+                                erosion over thousands of years.</figcaption>
+                        </figure>
+                    </main>
+                    <footer>
+                        <button aria-label="Back">
+                            < </button>
+                                <button onclick="closeDialog('Dialog_Piedade')" aria-label="Close Dialog"> Close
+                                </button>
+                                <button aria-label="Next"> > </button>
+                    </footer>
+                </dialog>
+                <img onclick="openDialog('Dialog_Yucatán')" aria-haspopup="Dialog" aria-controls="Dialog_Yucatán_img"
+                    class="main_img" src="./img/mexico.jpg" alt="Yucatán, Mexico">
+                <dialog id="Dialog_Yucatán" aria-labelledby="dialogTitleYucatán" aria-describedby="YucatánDescription">
+                    <header class="dialog_header">
+                        <h2 id="dialogTitleYucatán"> Yucatán, Mexico </h2>
+                    </header>
+                    <main>
 
-                <figure>
-                    <img class="main_img" src="./img/beach-greece.jpg" alt="Navagio Bay, Greece">
-                    <figcaption>The picture shows Navagio Bay on the Greek island of Zakynthos.
-                        The bay is famous for its shipwreck, which has been there since 1980 and gave the beach its name
-                        (Navagio means shipwreck in Greek).</figcaption>
-                </figure>
-
-                <figure>
-                    <img class="main_img" src="./img/tavern.jpg" alt="Petra Votsalo, Greece">
-                    <figcaption>The picture shows the tavern "Petra Votsalo" in Kato Zakros, Crete, Greece.
-                        It's a seafront restaurant serving traditional Greek cuisine and is known for its location and
-                        views.
-                    </figcaption>
-                </figure>
-
-                <figure>
-                    <img class="main_img" src="./img/beach.jpg" alt="Sandy beach with three palm trees">
-                    <figcaption>The image shows a wide, sandy beach with three palm trees.
-                        In the center of the beach is a small, red lifeguard station.
-                        In the background, the sea can be seen under a colorful sky dominated by shades of pink and
-                        orange.
-                    </figcaption>
-                </figure>
-
-                <figure>
-                    <img class="main_img" src="./img/bali.jpg" alt="Bali, Indonesia">
-                    <figcaption>The image shows a picturesque sunset scene on Bali, a popular Indonesian island.
-                        The scene conveys the impression of a tropical paradise, typical of Bali, known for its beaches,
-                        culture, and nature.</figcaption>
-                </figure>
-
-                <figure>
-                    <img class="main_img" src="./img/beach-cave.jpg" alt="Sea cave">
-                    <figcaption>The image shows a fascinating sea cave opening onto a sandy beach and the open sea. The
-                        interior of the cave consists of rugged, rocky walls that form a natural arch through which the
-                        bright blue seawater and sky can be seen. The transition from the cave to the beach is seamless,
-                        with light-colored sand merging gently into the turquoise water.</figcaption>
-                </figure>
-
-                <figure>
-                    <img class="main_img" src="./img/shellfish.jpg" alt=" Shells and sea snails">
-                    <figcaption>The picture shows a collection of shells and sea snails on the beach.</figcaption>
-                </figure>
+                        <figure>
+                            <img class="dialog_img" src="./img/mexico.jpg" alt="Yucatán, Mexico">
+                            <figcaption>
+                                Cancún is a popular tourist city on the northeast coast of Mexico's Yucatán Peninsula,
+                                located
+                                on
+                                the Caribbean Sea. The city is famous for its miles of white sandy beaches and
+                                crystal-clear
+                                waters,
+                                as seen in this picture.</figcaption>
+                        </figure>
+                    </main>
+                    <footer>
+                        <button aria-label="Back">
+                            < </button>
+                                <button onclick="closeDialog('Dialog_Yucatán')" aria-label="Close Dialog"> Close
+                                </button>
+                                <button aria-label="Next"> > </button>
+                    </footer>
+                </dialog>
+                <img onclick="openDialog('Dialog_Maui')" aria-haspopup="Dialog" aria-controls="Dialog_Maui_img"
+                    class="main_img" src="./img/beach-stones.jpg" alt="Maui, Hawaii">
+                <dialog id="Dialog_Maui" aria-labelledby="dialogTitleMaui" aria-describedby="MauiDescription">
+                    <header class="dialog_header">
+                        <h2 id="dialogTitleMaui"> Maui, Hawaii </h2>
+                    </header>
+                    <main>
+                        <figure>
+                            <img class="dialog_img" src="./img/beach-stones.jpg" alt="Maui, Hawaii">
+                            <figcaption>Maui, also known as "The Magic Isle," is famous for its fine sandy beaches and
+                                picturesque
+                                coastlines, which reflect the scene in the picture.
+                                The combination of palm trees, volcanic rock on the coast, and the Pacific Ocean is
+                                typical
+                                of
+                                the
+                                Hawaiian Islands.</figcaption>
+                        </figure>
+                    </main>
+                    <footer>
+                        <button aria-label="Back">
+                            < </button>
+                                <button onclick="closeDialog('Dialog_Maui')" aria-label="Close Dialog"> Close
+                                </button>
+                                <button aria-label="Next"> > </button>
+                    </footer>
+                </dialog>
+                <img onclick="openDialog('Dialog_greece')" aria-haspopup="Dialog" aria-controls="Dialog_greece_img"
+                    class="main_img" src="./img/beach-greece.jpg" alt="Navagio Bay, Greece">
+                <dialog id="Dialog_greece" aria-labelledby="dialogTitlegreece" aria-describedby="greeceDescription">
+                    <header class="dialog_header">
+                        <h2 id="dialogTitlePiedade">Navagio Bay, Greece</h2>
+                    </header>
+                    <main>
+                        <figure>
+                            <img class="dialog_img" src="./img/beach-greece.jpg" alt="Navagio Bay, Greece">
+                            <figcaption>The picture shows Navagio Bay on the Greek island of Zakynthos.
+                                The bay is famous for its shipwreck, which has been there since 1980 and gave the beach
+                                its
+                                name
+                                (Navagio means shipwreck in Greek).</figcaption>
+                        </figure>
+                    </main>
+                    <footer>
+                        <button aria-label="Back">
+                            < </button>
+                                <button onclick="closeDialog('Dialog_greece')" aria-label="Close Dialog"> Close
+                                </button>
+                                <button aria-label="Next"> > </button>
+                    </footer>
+                </dialog>
+                <img onclick="openDialog('Dialog_Votsalo')" aria-haspopup="Dialog" aria-controls="Dialog_Votsalo_img"
+                    class="main_img" src="./img/tavern.jpg" alt="Petra Votsalo, Greece">
+                <dialog id="Dialog_Votsalo" aria-labelledby="dialogTitleVotsalo" aria-describedby="VotsaloDescription">
+                    <header class="dialog_header">
+                        <h2 id="dialogTitleVotsalo"> Petra Votsalo, Greece </h2>
+                    </header>
+                    <main>
+                        <figure>
+                            <img class="dialog_img" src="./img/tavern.jpg" alt="Petra Votsalo, Greece">
+                            <figcaption>The picture shows the tavern "Petra Votsalo" in Kato Zakros, Crete, Greece.
+                                It's a seafront restaurant serving traditional Greek cuisine and is known for its
+                                location
+                                and
+                                views.
+                            </figcaption>
+                        </figure>
+                    </main>
+                    <footer>
+                        <button aria-label="Back">
+                            < </button>
+                                <button onclick="closeDialog('Dialog_Votsalo')" aria-label="Close Dialog"> Close
+                                </button>
+                                <button aria-label="Next"> > </button>
+                    </footer>
+                </dialog>
+                <img onclick="openDialog('Dialog_Beach')" aria-haspopup="Dialog" aria-controls="Dialog_Beach_img"
+                    class="main_img" src="./img/beach.jpg" alt="Sandy beach with three palm trees">
+                <dialog id="Dialog_Beach" aria-labelledby="dialogTitleBeach" aria-describedby="BeachDescription">
+                    <header class="dialog_header">
+                        <h2 id="dialogTitleBeach"> Sandy beach </h2>
+                    </header>
+                    <main>
+                        <figure>
+                            <img class="dialog_img" src="./img/beach.jpg" alt="Sandy beach with three palm trees">
+                            <figcaption>The image shows a wide, sandy beach with three palm trees.
+                                In the center of the beach is a small, red lifeguard station.
+                                In the background, the sea can be seen under a colorful sky dominated by shades of pink
+                                and
+                                orange.
+                            </figcaption>
+                        </figure>
+                    </main>
+                    <footer>
+                        <button aria-label="Back">
+                            < </button>
+                                <button onclick="closeDialog('Dialog_Beach')" aria-label="Close Dialog"> Close
+                                </button>
+                                <button aria-label="Next"> > </button>
+                    </footer>
+                </dialog>
+                <img onclick="openDialog('Dialog_Bali')" aria-haspopup="Dialog" aria-controls="Dialog_Bali_img"
+                    class="main_img" src="./img/bali.jpg" alt="Bali, Indonesia">
+                <dialog id="Dialog_Bali" aria-labelledby="dialogTitleBali" aria-describedby="BaliDescription">
+                    <header class="dialog_header">
+                        <h2 id="dialogTitleBali"> Bali, Indonesia </h2>
+                    </header>
+                    <main>
+                        <figure>
+                            <img class="dialog_img" src="./img/bali.jpg" alt="Bali, Indonesia">
+                            <figcaption>The image shows a picturesque sunset scene on Bali, a popular Indonesian island.
+                                The scene conveys the impression of a tropical paradise, typical of Bali, known for its
+                                beaches,
+                                culture, and nature.</figcaption>
+                        </figure>
+                    </main>
+                    <footer>
+                        <button aria-label="Back">
+                            < </button>
+                                <button onclick="closeDialog('Dialog_Bali')" aria-label="Close Dialog"> Close
+                                </button>
+                                <button aria-label="Next"> > </button>
+                    </footer>
+                </dialog>
+                <img onclick="openDialog('Dialog_Cave')" aria-haspopup="Dialog" aria-controls="Dialog_Cave_img"
+                    class="main_img" src="./img/beach-cave.jpg" alt="Sea cave">
+                <dialog id="Dialog_Cave" aria-labelledby="dialogTitleCave" aria-describedby="CaveDescription">
+                    <header class="dialog_header">
+                        <h2 id="dialogTitleCave"> Sea cave </h2>
+                    </header>
+                    <main>
+                        <figure>
+                            <img class="dialog_img" src="./img/beach-cave.jpg" alt="Sea cave">
+                            <figcaption>The image shows a fascinating sea cave opening onto a sandy beach and the open
+                                sea.
+                                The
+                                interior of the cave consists of rugged, rocky walls that form a natural arch through
+                                which
+                                the
+                                bright blue seawater and sky can be seen. The transition from the cave to the beach is
+                                seamless,
+                                with light-colored sand merging gently into the turquoise water.</figcaption>
+                        </figure>
+                    </main>
+                    <footer>
+                        <button aria-label="Back">
+                            < </button>
+                                <button onclick="closeDialog('Dialog_Cave')" aria-label="Close Dialog"> Close
+                                </button>
+                                <button aria-label="Next"> > </button>
+                    </footer>
+                </dialog>
+                <img onclick="openDialog('Dialog_Shellfish')" aria-haspopup="Dialog" aria-controls="Dialog_Shells_img"
+                    class="main_img" src="./img/shellfish.jpg" alt=" Shells and sea snails">
+                <dialog id="Dialog_Shellfish" aria-labelledby="dialogTitleShellfish" aria-describedby="ShellfishDescription">
+                    <header class="dialog_header">
+                        <h2 id="dialogTitleShellfish"> Shells and sea snails </h2>
+                    </header>
+                    <main>
+                        <figure>
+                            <img class="dialog_img" src="./img/shellfish.jpg" alt=" Shells and sea snails">
+                            <figcaption>The picture shows a collection of shells and sea snails on the beach.
+                            </figcaption>
+                        </figure>
+                    </main>
+                    <footer>
+                        <button aria-label="Back">
+                            < </button>
+                                <button onclick="closeDialog('Dialog_Shellfish')" aria-label="Close Dialog"> Close
+                                </button>
+                                <button aria-label="Next"> > </button>
+                    </footer>
+                </dialog>
 
             </div>
         </section>
@@ -159,9 +373,9 @@
 
     <footer>
         <div class="footer_content">
-        <a class="link" href="./impressum.html"> Contact </a> |
-         <a class="link" href="./impressum.html"> Privacy Policy </a> |
-          <a class="link" href="./impressum.html">Imprint </a>
+            <a class="link" href="./impressum.html"> Contact </a> |
+            <a class="link" href="./impressum.html"> Privacy Policy </a> |
+            <a class="link" href="./impressum.html">Imprint </a>
         </div>
     </footer>
 </body>

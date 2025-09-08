@@ -77,6 +77,7 @@ footer {
     width: 100px;
     border-radius: 8px;
     transition: transform 0.4s ease, opacity 0.4s ease;
+    object-fit: cover;
 
 }
 
@@ -85,9 +86,6 @@ footer {
     opacity: 0.5;
 }
 
-figcaption {
-    display: none;
-}
 
 .img_position {
     display: flex;
@@ -147,3 +145,24 @@ p {
     /* dunkler Halbtransparent-Overlay */
     padding: 50px;
 }
+dialog {
+    border: none;
+    background-color: #070221;
+    height: 100vh;
+}
+dialog::backdrop{
+    background-color: rgb(10, 1, 16,0.7);
+}
+dialog h2{
+    color: aliceblue;
+}
+figcaption {
+     color: aliceblue;
+     padding-top: 20px;
+     width: 500px;
+}
+.dialog_img{
+    width: 400px;
+    height: auto;
+}
+
