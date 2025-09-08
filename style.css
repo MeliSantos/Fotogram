@@ -169,4 +169,17 @@ figcaption {
     height: 400px;
     object-fit: cover;
 }
+button {
+    padding: 10px 20px 10px 20px;
+    background-color: rgba(8, 82, 119, 0.374);
+    color: aliceblue;
+    border-radius: 5px;
+    border-color:rgba(165, 180, 188, 0.281);
+    
+}
+dialog footer {
+    
+    display: flex;
+    justify-content: space-evenly;
+}
 
