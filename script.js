@@ -1,4 +1,12 @@
- let dialogIds = [
+const burger = document.getElementById('burger');
+const nav = document.getElementById('header_menu');
+
+burger.addEventListener('click', () => {
+    burger.classList.toggle('active');
+    nav.classList.toggle('show');
+});
+
+let dialogIds = [
     'Dialog_rio_img',
     'Dialog_dune_img',
     'Dialog_Algarve',
@@ -11,13 +19,30 @@
     'Dialog_Bali',
     'Dialog_Cave',
     'Dialog_Shellfish'
-  ];
+];
 
 
 function openDialog(dialogId) {
     const dialog = document.getElementById(dialogId);
     if (dialog) dialog.showModal();
+    const handleOutsideClick = (event) => {
+        const rect = dialog.getBoundingClientRect();
+        const clickedInside =
+            event.clientX >= rect.left &&
+            event.clientX <= rect.right &&
+            event.clientY >= rect.top &&
+            event.clientY <= rect.bottom;
+
+        if (!clickedInside) {
+            dialog.close();
+            dialog.removeEventListener('click', handleOutsideClick); // Wichtig: Listener entfernen!
+        }
+    };
+
+    dialog.addEventListener('click', handleOutsideClick);
+
 }
+
 
 function closeDialog(dialogId) {
     const dialog = document.getElementById(dialogId);
@@ -30,12 +55,12 @@ function showNext(currentId) {
     const nextIndex = (currentIndex + 1) % dialogIds.length;
     closeDialog(currentId);
     openDialog(dialogIds[nextIndex]);
-  }
+}
 
-  function showPrevious(currentId) {
+function showPrevious(currentId) {
     const currentIndex = dialogIds.indexOf(currentId);
     if (currentIndex === -1) return;
     const prevIndex = (currentIndex - 1 + dialogIds.length) % dialogIds.length;
     closeDialog(currentId);
     openDialog(dialogIds[prevIndex]);
-  }
+}

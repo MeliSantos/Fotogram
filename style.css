@@ -19,7 +19,7 @@ body {
 }
 
 header {
-    background-color: #18055554;
+    background-color: #05011189;
 }
 
 header img {
@@ -35,8 +35,10 @@ header img {
 }
 
 .header_section {
+
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 nav {
@@ -64,7 +66,7 @@ main {
 }
 
 footer {
-    background-color: #18055554;
+    background-color: #05011189;
     height: 100px;
     display: flex;
     align-items: center;
@@ -73,7 +75,7 @@ footer {
 }
 
 .main_img {
-    width: 100px; 
+    width: 100px;
     max-width: 160px;
     min-width: 100px;
     height: 100px;
@@ -117,7 +119,7 @@ p {
 }
 
 .link:hover {
-    color: #806f53;
+    color: #42e8e2;
     border: #070221;
 }
 
@@ -148,38 +150,227 @@ p {
     /* dunkler Halbtransparent-Overlay */
     padding: 50px;
 }
+.imprint{
+    padding:100px 400px 100px 400px;
+    text-align: start;
+}
+.imprint p {
+    text-align: start;
+}
+
 dialog {
     border: none;
     background-color: #070221;
-    height: 100vh;
+
 }
-dialog::backdrop{
-    background-color: rgb(10, 1, 16,0.7);
+
+dialog::backdrop {
+    background-color: rgb(10, 1, 16, 0.7);
 }
-dialog h2{
+
+dialog h2 {
     color: aliceblue;
 }
+
 figcaption {
-     color: aliceblue;
-     padding-top: 20px;
-     width: 500px;
+    color: aliceblue;
+    padding-top: 20px;
+    width: 500px;
 }
-.dialog_img{
+
+.dialog_img {
     max-width: 400px;
     height: 400px;
     object-fit: cover;
 }
+
 button {
     padding: 10px 20px 10px 20px;
     background-color: rgba(8, 82, 119, 0.374);
     color: aliceblue;
     border-radius: 5px;
-    border-color:rgba(165, 180, 188, 0.281);
-    
+    border-color: rgba(165, 180, 188, 0.281);
+
 }
+
 dialog footer {
-    
     display: flex;
     justify-content: space-evenly;
 }
 
+dialog header {
+    padding: 5px;
+}
+.socialLogo{
+    height: 100px;
+}
+.socialLogo:hover{
+    background-color: aliceblue;
+}
+.Socialcontactsession{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+ .smSection{
+    background-color: #07022155;
+    width: 100%;
+    height: 200px;
+ }
+
+
+
+@media (max-width: 768px) {
+    nav {
+        display: none;
+        flex-direction: column;
+        background-color: #170d34e8;
+        position: absolute;
+        top: 100px;
+        right: 0;
+        width: 100%;
+        padding: 20px;
+        font-size: 19px;
+
+    }
+
+    .link {
+        position: relative;
+        margin: 13px 0;
+        padding-bottom: 5px;
+        display: inline-block;
+        
+    }
+
+    .link::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #42e8e2;
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform 0.3s ease;
+    }
+
+    .link:hover::after {
+        transform: scaleX(1);
+        transform-origin: left;
+    }
+
+
+    nav.show {
+        display: flex;
+    }
+
+    .burger {
+        display: flex;
+        color: white;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .burger span {
+        height: 3px;
+        background-color: white;
+        border-radius: 2px;
+        width: 25px;
+        margin: 3px 0;
+        display: block;
+        transition: all 0.3s ease;
+        margin-right: 30px;
+    }
+
+    .burger.active span:nth-child(1) {
+        transform: rotate(45deg) translateY(7px);
+    }
+
+    .burger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .burger.active span:nth-child(3) {
+        transform: rotate(-45deg) translateY(-7px);
+    }
+
+
+}
+
+/* Für große Bildschirme: nav immer sichtbar, Burger versteckt */
+@media (min-width: 769px) {
+    nav {
+        display: flex;
+    }
+
+    .burger {
+        display: none;
+    }
+
+    .burger span {
+        height: 3px;
+        background-color: white;
+        border-radius: 2px;
+        width: 25px;
+
+    }
+}
+@media( max-width:700px){
+     h1 {
+        font-size: 24px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    p {
+        font-size: 18px;
+    }
+
+    .text_content {
+
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+}
+@media (max-width: 400px) {
+
+    .header_section {
+        flex-direction: column;
+    }
+
+    .burger span {
+        margin-right: 0px;
+    }
+
+    .burger {
+        margin-bottom: 20px;
+    }
+
+    nav {
+        padding-right: 0px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+    .text_content {
+
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+}
