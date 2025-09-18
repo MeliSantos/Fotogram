@@ -89,7 +89,7 @@ const images = [
         id: 'Dialog_Beach',
         src: './img/beach.jpg',
         alt: 'Sandy beach with three palm trees',
-        title: 'Sandy beach with three palm trees',
+        title: 'Sandy beach',
         description: `The image shows a wide, sandy beach with three palm trees.
                                 In the center of the beach is a small, red lifeguard station.
                                 In the background, the sea can be seen under a colorful sky dominated by shades of pink
@@ -125,12 +125,15 @@ const images = [
         description: `The picture shows a collection of shells and sea snails on the beach.`
     }
 ];
-const dialogIds = images.map(img => img.id); // für showNext / showPrevious
 
-const gallery = document.getElementById('gallery');
+const dialogContainer = document.getElementById('dialogContainer');
+const dialogIds = [];
 
-images.forEach(img => {
-    // Thumbnail 
+for (let i = 0; i < images.length; i++) {
+    const img = images[i];
+    dialogIds.push(img.id); 
+
+    
     const imageElement = document.createElement('img');
     imageElement.src = img.src;
     imageElement.alt = img.alt;
@@ -138,76 +141,62 @@ images.forEach(img => {
     imageElement.onclick = () => openDialog(img.id);
     gallery.appendChild(imageElement);
 
-    // Dialog 
-    const dialog = document.createElement('dialog');
-    dialog.id = img.id;
-    dialog.setAttribute('aria-labelledby', `dialogTitle_${img.id}`);
-    dialog.setAttribute('aria-describedby', `desc_${img.id}`);
 
-    dialog.innerHTML = `
-        <header class="dialog_header">
-            <h2 id="dialogTitle_${img.id}">${img.title}</h2>
-        </header>
-        <main>
-            <figure>
-                <img class="dialog_img" src="${img.src}" alt="${img.alt}">
-                <figcaption id="desc_${img.id}">
-                    ${img.description}
-                </figcaption>
-            </figure>
-        </main>
-        <footer>
-            <button aria-label="Back" onclick="showPrevious('${img.id}')">&lt;</button>
-            <button onclick="closeDialog('${img.id}')" aria-label="Close Dialog">Close</button>
-            <button aria-label="Next" onclick="showNext('${img.id}')">&gt;</button>
-        </footer>
+    const dialogHTML = `
+        <dialog id="${img.id}" aria-labelledby="dialogTitle_${img.id}" aria-describedby="desc_${img.id}">
+        <div class="dialog-content">
+            <header class="dialog_header">
+                <h2 id="dialogTitle_${img.id}">${img.title}</h2>
+            </header>
+            <main>
+                <figure>
+                    <img class="dialog_img" src="${img.src}" alt="${img.alt}">
+                    <figcaption id="desc_${img.id}">
+                        ${img.description}
+                    </figcaption>
+                </figure>
+            </main>
+            <footer>
+                <button aria-label="Back" onclick="showNext('${img.id}', 'prev')">&lt;</button>
+                <button onclick="closeDialog('${img.id}')" aria-label="Close Dialog">Close</button>
+                <button aria-label="Next" onclick="showNext('${img.id}', 'next')">&gt;</button>
+            </footer>
+          </div>
+        </dialog>
     `;
-
-    document.body.appendChild(dialog);
-});
-
-
-
+    dialogContainer.innerHTML += dialogHTML;
+}
 
 function openDialog(dialogId) {
     const dialog = document.getElementById(dialogId);
-    if (dialog) dialog.showModal();
-    const handleOutsideClick = (event) => {
-        const rect = dialog.getBoundingClientRect();
-        const clickedInside =
-            event.clientX >= rect.left &&
-            event.clientX <= rect.right &&
-            event.clientY >= rect.top &&
-            event.clientY <= rect.bottom;
-
-        if (!clickedInside) {
-            dialog.close();
-            dialog.removeEventListener('click', handleOutsideClick); // Wichtig: Listener entfernen!
-        }
-    };
-
-    dialog.addEventListener('click', handleOutsideClick);
-
+    if (!dialog) return;
+    dialog.showModal();
+     document.body.classList.add('no-scroll');
+    
+    dialog.addEventListener('click', () => {
+        dialog.close();
+    }, { once: true });
+    dialog.getElementsByClassName('dialog-content')[0]?.addEventListener('click', e => e.stopPropagation());
+   
+    dialog.addEventListener('close', () => {
+        document.body.classList.remove('no-scroll');
+    }, { once: true });
 }
-
 
 function closeDialog(dialogId) {
     const dialog = document.getElementById(dialogId);
     if (dialog) dialog.close();
 }
 
-function showNext(currentId) {
+function showNext(currentId, direction) {
     const currentIndex = dialogIds.indexOf(currentId);
     if (currentIndex === -1) return;
-    const nextIndex = (currentIndex + 1) % dialogIds.length;
+    let newIndex;
+    if (direction === 'next') {
+        newIndex = (currentIndex + 1) % dialogIds.length;
+    } else {
+        newIndex = (currentIndex - 1 + dialogIds.length) % dialogIds.length;
+    }
     closeDialog(currentId);
-    openDialog(dialogIds[nextIndex]);
-}
-
-function showPrevious(currentId) {
-    const currentIndex = dialogIds.indexOf(currentId);
-    if (currentIndex === -1) return;
-    const prevIndex = (currentIndex - 1 + dialogIds.length) % dialogIds.length;
-    closeDialog(currentId);
-    openDialog(dialogIds[prevIndex]);
+    openDialog(dialogIds[newIndex]);
 }
