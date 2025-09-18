@@ -1,10 +1,14 @@
 const burger = document.getElementById('burger');
 const nav = document.getElementById('header_menu');
 
-burger.addEventListener('click', () => {
+burger?.addEventListener('click', () => {
     burger.classList.toggle('active');
     nav.classList.toggle('show');
 });
+
+const gallery = document.getElementById('gallery');
+const dialogContainer = document.getElementById('dialogContainer');
+const dialogIds = [];
 
 const images = [
     {
@@ -126,67 +130,71 @@ const images = [
     }
 ];
 
-const dialogContainer = document.getElementById('dialogContainer');
-const dialogIds = [];
+function addScrollLock() {
+    document.body.classList.add('no-scroll');
+    document.documentElement.classList.add('no-scroll');
+}
 
-for (let i = 0; i < images.length; i++) {
-    const img = images[i];
-    dialogIds.push(img.id); 
+function removeScrollLock() {
+    document.body.classList.remove('no-scroll');
+    document.documentElement.classList.remove('no-scroll');
+}
 
-    
-    const imageElement = document.createElement('img');
-    imageElement.src = img.src;
-    imageElement.alt = img.alt;
-    imageElement.classList.add('main_img');
-    imageElement.onclick = () => openDialog(img.id);
-    gallery.appendChild(imageElement);
-
-
-    const dialogHTML = `
+function createDialogHTML(img) {
+    return `
         <dialog id="${img.id}" aria-labelledby="dialogTitle_${img.id}" aria-describedby="desc_${img.id}">
-        <div class="dialog-content">
-            <header class="dialog_header">
-                <h2 id="dialogTitle_${img.id}">${img.title}</h2>
-            </header>
-            <main>
-                <figure>
-                    <img class="dialog_img" src="${img.src}" alt="${img.alt}">
-                    <figcaption id="desc_${img.id}">
-                        ${img.description}
-                    </figcaption>
-                </figure>
-            </main>
-            <footer>
-                <button tabindex="0" aria-label="Back"  onclick="showNext('${img.id}', 'prev')">&lt;</button>
-                <button tabindex="0" onclick="closeDialog('${img.id}')" aria-label="Close Dialog">Close</button>
-                <button tabindex="0" aria-label="Next" onclick="showNext('${img.id}', 'next')">&gt;</button>
-            </footer>
-          </div>
+            <div class="dialog-content">
+                <header class="dialog_header">
+                    <h2 id="dialogTitle_${img.id}">${img.title}</h2>
+                </header>
+                <main>
+                    <figure>
+                        <img class="dialog_img" src="${img.src}" alt="${img.alt}">
+                        <figcaption id="desc_${img.id}">${img.description}</figcaption>
+                    </figure>
+                </main>
+                <footer>
+                    <button tabindex="0" aria-label="Back" onclick="showNext('${img.id}', 'prev')">&lt;</button>
+                    <button tabindex="0" onclick="closeDialog('${img.id}')" aria-label="Close Dialog">Close</button>
+                    <button tabindex="0" aria-label="Next" onclick="showNext('${img.id}', 'next')">&gt;</button>
+                </footer>
+            </div>
         </dialog>
     `;
-    dialogContainer.innerHTML += dialogHTML;
+}
+
+function createGallery() {
+    images.forEach((img) => {
+        dialogIds.push(img.id);
+
+        const imageElement = document.createElement('img');
+        imageElement.src = img.src;
+        imageElement.alt = img.alt;
+        imageElement.classList.add('main_img');
+        imageElement.onclick = () => openDialog(img.id);
+        gallery.appendChild(imageElement);
+
+        const dialogHTML = createDialogHTML(img);
+        dialogContainer.innerHTML += dialogHTML;
+    });
 }
 
 function openDialog(dialogId) {
     const dialog = document.getElementById(dialogId);
     if (!dialog) return;
     dialog.showModal();
-     document.body.classList.add('no-scroll');
-    
-    dialog.addEventListener('click', () => {
-        dialog.close();
-    }, { once: true });
-    dialog.getElementsByClassName('dialog-content')[0]?.addEventListener('click', e => e.stopPropagation());
-   
-    dialog.addEventListener('close', () => {
-        document.body.classList.remove('no-scroll');
-    }, { once: true });
-    
+    addScrollLock();
+    dialog.addEventListener('click', () => dialog.close(), { once: true });
+    dialog.getElementsByClassName('dialog-content')[0]?.addEventListener('click', event => event.stopPropagation());
+    dialog.addEventListener('close', removeScrollLock, { once: true });
 }
 
 function closeDialog(dialogId) {
     const dialog = document.getElementById(dialogId);
-    if (dialog) dialog.close();
+    if (dialog) {
+        dialog.removeEventListener('close', removeScrollLock);
+        dialog.close();
+    }
 }
 
 function showNext(currentId, direction) {
@@ -201,3 +209,15 @@ function showNext(currentId, direction) {
     closeDialog(currentId);
     openDialog(dialogIds[newIndex]);
 }
+
+createGallery();
+
+
+
+
+
+
+
+
+
+
