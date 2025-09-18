@@ -157,9 +157,9 @@ for (let i = 0; i < images.length; i++) {
                 </figure>
             </main>
             <footer>
-                <button aria-label="Back" onclick="showNext('${img.id}', 'prev')">&lt;</button>
-                <button onclick="closeDialog('${img.id}')" aria-label="Close Dialog">Close</button>
-                <button aria-label="Next" onclick="showNext('${img.id}', 'next')">&gt;</button>
+                <button tabindex="0" aria-label="Back"  onclick="showNext('${img.id}', 'prev')">&lt;</button>
+                <button tabindex="0" onclick="closeDialog('${img.id}')" aria-label="Close Dialog">Close</button>
+                <button tabindex="0" aria-label="Next" onclick="showNext('${img.id}', 'next')">&gt;</button>
             </footer>
           </div>
         </dialog>
@@ -181,6 +181,7 @@ function openDialog(dialogId) {
     dialog.addEventListener('close', () => {
         document.body.classList.remove('no-scroll');
     }, { once: true });
+    
 }
 
 function closeDialog(dialogId) {
